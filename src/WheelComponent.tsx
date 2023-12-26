@@ -15,6 +15,7 @@ const WheelComponent: React.FC<WheelProps> = ({
   downDuration = 1000,
   fontFamily = "proxima-nova",
 }) => {
+  const dimension = (size + 20) * 2;
   let currentSegment = "";
   let isStarted = false;
   const [isFinished, setFinished] = useState(false);
@@ -45,8 +46,8 @@ const WheelComponent: React.FC<WheelProps> = ({
     let canvas = document.getElementById("canvas") as HTMLCanvasElement;
     if (navigator.userAgent.indexOf("MSIE") !== -1) {
       canvas = document.createElement("canvas");
-      canvas.setAttribute("width", "500");
-      canvas.setAttribute("height", "500");
+      canvas.setAttribute("width", `${dimension}`);
+      canvas.setAttribute("height", `${dimension}`);
       canvas.setAttribute("id", "canvas");
       document.getElementById("wheel")?.appendChild(canvas);
     }
@@ -214,14 +215,14 @@ const WheelComponent: React.FC<WheelProps> = ({
       return false;
     }
     const ctx = canvasContext;
-    ctx.clearRect(0, 0, 500, 500);
+    ctx.clearRect(0, 0, dimension, dimension);
   };
   return (
     <div id="wheel">
       <canvas
         id="canvas"
-        width="500"
-        height="500"
+        width={dimension}
+        height={dimension}
         style={{
           pointerEvents: isFinished && isOnlyOnce ? "none" : "auto",
         }}

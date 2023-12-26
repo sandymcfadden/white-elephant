@@ -22,6 +22,8 @@ export const Wheel: React.FC = () => {
     }, 3000);
   };
 
+  const size = window.innerWidth > 500 ? 230 : window.innerWidth / 2 - 20;
+
   if (showSurprise) {
     return <Surprise />;
   }
@@ -39,7 +41,7 @@ export const Wheel: React.FC = () => {
       upDuration={100}
       downDuration={1000}
       fontFamily="Arial"
-      size={230}
+      size={size}
     />
   );
 };

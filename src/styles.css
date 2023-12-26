@@ -24,7 +24,7 @@ p {
 }
 
 iframe {
-  max-width: 500px;
+  max-width: 100vw;
   margin: 0 auto;
   border: 0;
   display: block;
